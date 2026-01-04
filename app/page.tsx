@@ -16,13 +16,6 @@ export default function Home() {
             muted
             src="/vecteezy_knead-the-dough-ingredients-for-the-dough-the-best_14348716.mov"
           />
-          {/* <video
-            autoPlay
-            className="w-full rounded-md shadow-lg opacity-85"
-            loop
-            muted
-            src="/vecteezy_cinematic-rotating-shot-of-cookies-on-a-plate-cookies-386_1619181.mp4"
-          /> */}
         </div>
       </div>
     </section>
