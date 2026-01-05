@@ -1,0 +1,46 @@
+
+echo " ----------------------------------------"
+echo "| RUNNING HUSKY PRE-COMMIT HOOK FRONTEND |"
+echo " ----------------------------------------"
+
+echo ""
+echo "Step 1: 🧹 Cleaning .next folder..."
+if [ -d ".next" ]; then
+  rm -rf .next
+  echo "✅ .next folder deleted"
+else
+  echo "⚠️ .next folder does not exist, skipping"
+fi
+
+echo ""
+echo "Step 2: 🚀 Running npm run build"
+if ! npm run build; then
+  echo "❌ Error in npm run build. Please fix the errors before continuing."
+  exit 1
+fi
+
+echo ""
+echo "Step 3: 🚀 Running npm run lint"
+if ! npm run lint; then
+  echo "❌ Error in npm run lint. Please check your code."
+  exit 1
+fi
+
+echo ""
+echo "Step 4: 🚀 Running npm run format"
+if ! npm run format; then
+  echo "❌ Error in npm run format. Please check your code."
+  exit 1
+fi
+
+# echo ""
+# echo "Step 5: 🚀 Running npm run test..."
+# if ! npm run test; then
+#   echo "❌ Error in tests. Make sure all tests pass."
+#   exit 1
+# fi
+
+echo ""
+echo " ------------------------------------------------"
+echo "| ✅ All pre-commit steps completed successfully |"
+echo " ------------------------------------------------"
