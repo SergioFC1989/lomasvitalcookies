@@ -1,12 +1,13 @@
 import "@/styles/globals.css";
+
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
-
-import { Providers } from "./providers";
 
 import { Navbar } from "@/components/navbar";
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
+
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -26,26 +27,15 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body
-        className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body className={clsx("min-h-screen text-foreground bg-background font-sans antialiased", fontSans.variable)}>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
+            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">{children}</main>
           </div>
         </Providers>
       </body>

@@ -2,19 +2,8 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-export const Logo: React.FC<IconSvgProps> = ({
-  size = 72,
-  width,
-  height,
-  ...props
-}) => (
-  <svg
-    fill="none"
-    height={size || height}
-    viewBox="0 0 100 100"
-    width={size || width}
-    {...props}
-  >
+export const Logo: React.FC<IconSvgProps> = ({ size = 72, width, height, ...props }) => (
+  <svg fill="none" height={size || height} viewBox="0 0 100 100" width={size || width} {...props}>
     <g
       clipRule="evenodd"
       fill="currentColor"
@@ -40,12 +29,7 @@ export const Logo: React.FC<IconSvgProps> = ({
   </svg>
 );
 
-export const InstagramIcon: React.FC<IconSvgProps> = ({
-  size = 24,
-  width,
-  height,
-  ...props
-}) => {
+export const InstagramIcon: React.FC<IconSvgProps> = ({ size = 24, width, height, ...props }) => {
   return (
     <svg
       aria-hidden="true"
@@ -64,12 +48,7 @@ export const InstagramIcon: React.FC<IconSvgProps> = ({
   );
 };
 
-export const MoonFilledIcon = ({
-  size = 24,
-  width,
-  height,
-  ...props
-}: IconSvgProps) => (
+export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -86,12 +65,7 @@ export const MoonFilledIcon = ({
   </svg>
 );
 
-export const SunFilledIcon = ({
-  size = 24,
-  width,
-  height,
-  ...props
-}: IconSvgProps) => (
+export const SunFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"
     focusable="false"

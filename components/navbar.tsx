@@ -1,20 +1,20 @@
+import { Link } from "@heroui/link";
 import {
   Navbar as HeroUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
   NavbarBrand,
+  NavbarContent,
   NavbarItem,
+  NavbarMenu,
   NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@heroui/navbar";
-import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
-import NextLink from "next/link";
 import clsx from "clsx";
+import NextLink from "next/link";
 
-import { siteConfig } from "@/config/site";
+import { InstagramIcon, Logo } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { Logo, InstagramIcon } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   return (
@@ -30,10 +30,7 @@ export const Navbar = () => {
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
+                className={clsx(linkStyles({ color: "foreground" }), "data-[active=true]:text-primary data-[active=true]:font-medium")}
                 color="foreground"
                 href={item.href}
               >
@@ -43,16 +40,9 @@ export const Navbar = () => {
           ))}
         </ul>
       </NavbarContent>
-      <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
-      >
+      <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link
-            isExternal
-            aria-label="Instagram"
-            href={siteConfig.links.instagram}
-          >
+          <Link isExternal aria-label="Instagram" href={siteConfig.links.instagram}>
             <InstagramIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
@@ -68,11 +58,10 @@ export const Navbar = () => {
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
                 color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
+                  index === 2 ? "primary"
+                  : index === siteConfig.navMenuItems.length - 1 ?
+                    "danger"
+                  : "foreground"
                 }
                 href="#"
                 size="lg"
