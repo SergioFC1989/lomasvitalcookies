@@ -11,9 +11,9 @@ export default function Home() {
         <div className="flex flex-col gap-4 mt-8">
           <video
             autoPlay
-            className="w-full rounded-md shadow-lg opacity-85"
             loop
             muted
+            className="w-full rounded-md shadow-lg opacity-85"
             src="/vecteezy_knead-the-dough-ingredients-for-the-dough-the-best_14348716.mov"
           />
         </div>
