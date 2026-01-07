@@ -111,5 +111,6 @@ export default defineConfig([
       "vitest/no-focused-tests": "warn",
       "vitest/max-nested-describe": ["error", { max: 5 }],
     },
+    ignores: ["next-env.d.ts", ".next/**", "node_modules/**"],
   },
 ]);
