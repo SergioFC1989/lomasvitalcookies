@@ -11,22 +11,22 @@ import { InstagramIcon, Logo } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 
-const renderNavItems = () => {
-  return siteConfig.items.map((item) => (
-    <NavbarItem key={item.href}>
-      <NextLink
-        className={clsx(linkStyles({ color: "foreground" }), "data-[active=true]:text-primary data-[active=true]:font-medium")}
-        color="foreground"
-        href={item.href}
-      >
-        {item.label}
-      </NextLink>
-    </NavbarItem>
-  ));
-};
-
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const renderNavItems = () =>
+    siteConfig.items.map((item) => (
+      <NavbarItem key={item.href}>
+        <NextLink
+          className={clsx(linkStyles({ color: "foreground" }), "data-[active=true]:text-primary data-[active=true]:font-medium")}
+          color="foreground"
+          href={item.href}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {item.label}
+        </NextLink>
+      </NavbarItem>
+    ));
 
   return (
     <HeroUINavbar className="py-2" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
