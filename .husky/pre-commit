@@ -20,14 +20,21 @@ if ! npm run lint; then
 fi
 
 echo ""
-echo "Step 3: 🚀 Running npm run format"
+echo "Step 3: 🚀 Running npm run lint:fix"
+if ! npm run lint:fix; then
+  echo "❌ Error in npm run lint:fix. Please check your code."
+  exit 1
+fi
+
+echo ""
+echo "Step 4: 🚀 Running npm run format"
 if ! npm run format; then
   echo "❌ Error in npm run format. Please check your code."
   exit 1
 fi
 
 echo ""
-echo "Step 4: 🚀 Running npm run build"
+echo "Step 5: 🚀 Running npm run build"
 if ! npm run build; then
   echo "❌ Error in npm run build. Please fix the errors before continuing."
   exit 1
@@ -35,7 +42,7 @@ fi
 
 
 # echo ""
-# echo "Step 5: 🚀 Running npm run test..."
+# echo "Step 6: 🚀 Running npm run test..."
 # if ! npm run test; then
 #   echo "❌ Error in tests. Make sure all tests pass."
 #   exit 1

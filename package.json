@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev --turbopack",
     "husky": "husky",
-    "lint": "eslint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "start": "next start"
   },

@@ -1,18 +1,15 @@
 "use client";
 
-import { SwitchProps, useSwitch } from "@heroui/switch";
+import { FC } from "react";
+import { useTheme } from "next-themes";
+import { useSwitch } from "@heroui/switch";
 import { useIsSSR } from "@react-aria/ssr";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import clsx from "clsx";
-import { useTheme } from "next-themes";
-import { FC } from "react";
 
-import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
-
-export interface ThemeSwitchProps {
-  className?: string;
-  classNames?: SwitchProps["classNames"];
-}
+import { MoonFilledIcon } from "../../icons/MoonFilledIcon";
+import { SunFilledIcon } from "../../icons/SunFilledIcon";
+import { ThemeSwitchProps } from "./ThemeSwitch.type";
 
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className, classNames }) => {
   const { theme, setTheme } = useTheme();

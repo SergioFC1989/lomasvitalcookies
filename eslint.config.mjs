@@ -84,12 +84,32 @@ export default defineConfig([
         version: "detect",
       },
     },
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["**/*.ts", "**/*.tsx", "lib/**/*.ts", "lib/**/*.tsx"],
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...typescriptEslint.configs.recommended.rules,
-      "simple-import-sort/imports": "error",
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            // 1. Node.js built-ins (node:path, node:fs, etc.)
+            ["^node:"],
+
+            // 2. Librerías externas (react, next, etc.)
+            ["^react", "^next", "^@?\\w"],
+
+            // 3. Aliases del proyecto (ajusta a los tuyos)
+            ["^@/"],
+
+            // 4. Imports relativos
+            ["^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+
+            // 5. Side effects (CSS, polyfills, etc.)
+            ["^\\u0000"],
+          ],
+        },
+      ],
       "simple-import-sort/exports": "error",
       // Prettier
       "prettier/prettier": "off",

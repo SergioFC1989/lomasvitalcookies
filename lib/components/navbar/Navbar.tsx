@@ -1,15 +1,16 @@
 "use client";
 
+import { useState } from "react";
+import NextLink from "next/link";
 import { Link } from "@heroui/link";
 import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuToggle } from "@heroui/navbar";
 import { link as linkStyles } from "@heroui/theme";
 import clsx from "clsx";
-import NextLink from "next/link";
-import { useState } from "react";
 
-import { InstagramIcon, Logo } from "@/components/icons";
-import { ThemeSwitch } from "@/components/theme-switch";
-import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/lib/components/themeSwitch/ThemeSwitch";
+import { siteConfig } from "@/lib/configs/site";
+import { InstagramIcon } from "@/lib/icons/InstagramIcon";
+import { LogoIcon } from "@/lib/icons/LogoIcon";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +34,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
+            <LogoIcon />
             <p className="font-bold text-inherit hidden md:block">Lo Más Vital</p>
           </NextLink>
         </NavbarBrand>
